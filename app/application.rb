@@ -17,7 +17,7 @@ class Application
     elsif req.path.match(/cart/)
       item = req.params["item"]
         if @@cart.include?(item)
-
+          raise error
         else @@cart << item
         end
     else
