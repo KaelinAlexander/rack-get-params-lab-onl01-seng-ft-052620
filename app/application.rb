@@ -15,9 +15,12 @@ class Application
       search_term = req.params["q"]
       resp.write handle_search(search_term)
     elsif req.path.match(/cart/)
+      @@cart.each do |item|
+        resp.write "#{item}\n"
+    elsif req.path.match(/add/)
       item = req.params["item"]
         if @@cart.include?(item)
-          raise error
+          puts "Error: That item is already in your cart."
         else @@cart << item
         end
     else
