@@ -21,7 +21,7 @@ class Application
     elsif req.path.match(/add/)
       item = req.params["item"]
         if @@items.include?(item)
-          puts "Error: That item is already in your cart."
+          @@cart << item
         else @@cart << item
         end
     else
